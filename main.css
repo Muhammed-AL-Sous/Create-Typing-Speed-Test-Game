@@ -1,0 +1,249 @@
+:root {
+  --main-color: #2196f3;
+  --secondary-color: #009688;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.game {
+  background-color: #eee;
+  min-height: 100vh;
+}
+
+.game .name {
+  background-color: var(--main-color);
+  padding: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .game .name {
+    font-size: 22px;
+    margin-bottom: 50px;
+  }
+}
+
+.game .container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.game .container .message {
+  background-color: white;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.game .message span {
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.game .message span::before {
+  content: "[  ";
+}
+
+.game .message span::after {
+  content: "  ]";
+}
+
+.game .container .start {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 20px;
+  font-size: 25px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.game .container .the-word {
+  color: var(--main-color);
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold;
+  user-select: none;
+}
+
+.game .container .input {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  border: 2px solid var(--main-color);
+  caret-color: var(--main-color);
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 20px;
+  border-radius: 6px;
+}
+
+.game .container .input:focus {
+  outline: none;
+}
+
+.upcoming-words {
+  background-color: white;
+  padding: 15px;
+  margin: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 6px;
+}
+
+.upcoming-words div {
+  background-color: var(--main-color);
+  color: white;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.game .container .control {
+  background-color: white;
+  padding: 15px;
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 6px;
+}
+
+.game .container .control span {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.finish {
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+  padding: 15px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.finish .good {
+  color: var(--main-color);
+}
+
+.finish .bad {
+  color: red;
+  opacity: 1;
+}
+
+.Choose-a-level {
+  background-color: #333;
+  width: 174px;
+  list-style: none;
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 1s;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  top: 14px;
+  left: 155px;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 991px) {
+  .Choose-a-level {
+    font-size: 20px;
+    top: 70px;
+    left: 178px;
+  }
+}
+
+.Choose-a-level li {
+  margin: 5px 0 0;
+  width: 100%;
+  transition: 0.5s;
+  cursor: pointer;
+  padding: 5px;
+  display: none;
+}
+
+.Choose-a-level li.show {
+  display: block;
+}
+
+.Choose-a-level li.easy:hover {
+  background-color: greenyellow;
+}
+.Choose-a-level li.normal:hover {
+  background-color: brown;
+}
+.Choose-a-level li.hard:hover {
+  background-color: red;
+}
+
+.reload {
+  width: 50px;
+  height: 50px;
+  background-color: #eee;
+  border: none;
+  font-size: 50px;
+  color: var(--main-color);
+  cursor: pointer;
+  position: absolute;
+  bottom: -60px;
+  display: none;
+}
+
+.details {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 35px 0 0;
+  position: relative;
+  border: 2px solid var(--main-color);
+}
+
+.details .caption {
+  padding: 10px;
+  background: var(--main-color);
+  color: white;
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  user-select: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.details p {
+  margin-top: 15px;
+}
+.details p::first-letter {
+  color: var(--main-color);
+  font-weight: bold;
+}

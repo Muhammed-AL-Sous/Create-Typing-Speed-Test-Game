@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Typing Speed Test Game</title>
+    <link rel="stylesheet" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="game">
+      <div class="name">Create Typing Speed Test Game</div>
+      <div class="container">
+        <div class="message">
+          You Are Playing On
+          <span class="lvl"></span> Level & You Have
+          <span class="seconds"></span> Seconds To Write The Words
+        </div>
+        <div class="start">Start Playing</div>
+        <div class="the-word"></div>
+        <input type="text" class="input" />
+        <div class="upcoming-words">Words Will Show Here</div>
+        <div class="control">
+          <div class="time">Time Left <span></span> Seconds</div>
+          <div class="score">
+            Score : <span class="got">0</span> From <span class="total"></span>
+          </div>
+        </div>
+        <div class="finish">
+          <button class="reload">
+            <i class="fa fa-solid fa-rotate-right"></i>
+          </button>
+        </div>
+        <ul class="Choose-a-level">
+          <span class="choosen"> Choose A Level :</span>
+          <li class="easy">Easy</li>
+          <li class="normal">Normal</li>
+          <li class="hard">Hard</li>
+        </ul>
+        <div class="details" style="direction: rtl">
+          <span class="caption"> قواعد اللعبة </span>
+          <p>
+            1- يجب عليك تحديد المستوى الذي يناسبك و في حال عدم التحديد سيكون
+            المستوى الافتراضي هو سهل
+          </p>
+          <p>
+            2- عند الضغط على ابدأ سيتم ظهور كلمة بحجم كبير يجب عليك كتابتها ضمن
+            المستطيل الابيض
+          </p>
+          <p>
+            3- سيكون لديك وقت محدد في كل مستوى يجب عليك كتابة الكلمة قبل انتهاء
+            الوقت
+          </p>
+          <p>
+            4- في حال كانت الكلمة التي قمت بإدخالها صحيحة فإنه سيتم إضافة نقطة
+            لك و تنتقل لكلمة أخرى
+          </p>
+          <p>
+            5- في حال كانت الكلمة التي قمت بإدخالها خاطئة فإنك سوف تخسر اللعبة
+          </p>
+          <p>
+            6- في حال كانت لديك أي ملاحظات أو واجهت مشاكل يمكنك التواصل مع مبرمج
+            اللعبة من هذا الرابط
+            <a
+              href="https://www.facebook.com/profile.php?id=100021566181496"
+              target="_blank"
+            >
+              <i class="fa fa-brands fa-staylinked"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
