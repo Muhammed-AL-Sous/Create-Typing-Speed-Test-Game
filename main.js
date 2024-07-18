@@ -1,3 +1,4 @@
+
 // Array Of Words
 const wordsEasy = [
   "Hello",
@@ -61,7 +62,6 @@ let lis = document.querySelectorAll(".Choose-a-level li");
 let easylevel = document.querySelector(".Choose-a-level .easy");
 let normallevel = document.querySelector(".Choose-a-level .normal");
 let hardlevel = document.querySelector(".Choose-a-level .hard");
-let reload = document.querySelector(".reload");
 let details = document.querySelector(".details");
 
 // Default Level
@@ -245,26 +245,49 @@ function startPlay() {
           genWordsHard();
         } else {
           // All words completed, show congratulations
-          let span = document.createElement("span");
-          span.className = "good";
-          let spanText = document.createTextNode("Congratulations");
-          span.appendChild(spanText);
-          finishMessage.style.display = "flex";
-          finishMessage.appendChild(span);
+          // let span = document.createElement("span");
+          // span.className = "good";
+          // let spanText = document.createTextNode("Congratulations");
+          // span.appendChild(spanText);
+          // finishMessage.style.display = "flex";
+          // finishMessage.appendChild(span);
+          // ======================================================== //
+          // OR
+          Swal.fire({
+            title: "Congratulations",
+            text: "Do You Want To Play Again",
+            icon: "success",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
           upcomingWords.remove(); // Remove UpcomingWords Box
-          reload.style.display = "block";
           clearInterval(timer); // Ensure timer is stopped
           return;
         }
       } else {
         // Wrong input, game over
-        let span = document.createElement("span");
-        span.className = "bad";
-        let spanText = document.createTextNode("Game Over , Plase Try Again");
-        span.appendChild(spanText);
-        finishMessage.style.display = "flex";
-        finishMessage.appendChild(span);
-        reload.style.display = "block";
+        // let span = document.createElement("span");
+        // span.className = "bad";
+        // let spanText = document.createTextNode("Game Over , Please Try Again");
+        // span.appendChild(spanText);
+        // finishMessage.style.display = "flex";
+        // finishMessage.appendChild(span);
+        // reload.style.display = "block";
+        // ====================================== //
+        // OR
+
+        Swal.fire({
+          title: "Game Over",
+          text: "Please Try Again",
+          icon: "error",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
+
         clearInterval(timer); // Ensure timer is stopped
         return;
       }
@@ -281,7 +304,3 @@ function reSeconds() {
     timeLeftSpan.innerHTML = levels["Hard"];
   }
 }
-
-reload.onclick = function () {
-  window.location.reload();
-};
