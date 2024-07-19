@@ -329,6 +329,7 @@ function startPlay() {
             window.close();
           }
         });
+
         clearInterval(timer); // Ensure timer is stopped
         return;
       }
