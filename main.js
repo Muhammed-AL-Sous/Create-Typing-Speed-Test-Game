@@ -281,7 +281,7 @@ function startPlay() {
             if (result.isConfirmed) {
               location.reload();
             } else {
-              window.close();
+              window.open("https://www.google.com", "_self");
             }
           });
 
@@ -326,7 +326,7 @@ function startPlay() {
           if (result.isConfirmed) {
             location.reload();
           } else {
-            window.close();
+            window.open("https://www.google.com", "_self");
           }
         });
 
