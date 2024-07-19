@@ -40,9 +40,9 @@ const wordsHard = [
 
 // Setting Levels
 const levels = {
-  Easy: 3,
-  Normal: 4,
-  Hard: 5,
+  Easy: 4,
+  Normal: 5,
+  Hard: 6,
 };
 
 // Catch Selectors
