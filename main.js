@@ -1,4 +1,3 @@
-
 // Array Of Words
 const wordsEasy = [
   "Hello",
@@ -41,9 +40,9 @@ const wordsHard = [
 
 // Setting Levels
 const levels = {
-  Easy: 6,
-  Normal: 5,
-  Hard: 4,
+  Easy: 3,
+  Normal: 4,
+  Hard: 5,
 };
 
 // Catch Selectors
@@ -63,6 +62,7 @@ let easylevel = document.querySelector(".Choose-a-level .easy");
 let normallevel = document.querySelector(".Choose-a-level .normal");
 let hardlevel = document.querySelector(".Choose-a-level .hard");
 let details = document.querySelector(".details");
+let message = document.querySelector(".message");
 
 // Default Level
 let DefaultLevelName = "Easy";
@@ -134,6 +134,7 @@ startButton.onclick = function () {
   this.remove();
   Choosen.remove();
   details.remove();
+  message.remove();
   input.focus();
   // Generate Word Function
   callGen();
@@ -220,6 +221,7 @@ function genWordsHard() {
 
 function startPlay() {
   reSeconds();
+  let yourScore = scoreGot.innerHTML;
   let timer = setInterval(() => {
     timeLeftSpan.innerHTML--;
     if (timeLeftSpan.innerHTML === "0") {
@@ -232,6 +234,7 @@ function startPlay() {
         // Compare Words
         input.value = ""; // Empty Input Field
         scoreGot.innerHTML++; // Increase Score
+        yourScore++;
 
         // Check if there are remaining words for the current level
         if (lvlNameSpan.textContent === "Easy" && wordsEasy.length > 0) {
@@ -253,15 +256,35 @@ function startPlay() {
           // finishMessage.appendChild(span);
           // ======================================================== //
           // OR
+          // =============== //
+          // Swal.fire({
+          //   title: "Congratulations ",
+          //   text: `Your Score Is : ${yourScore}`,
+          //   text: "Do You Want To Play Again",
+          //   icon: "success",
+          // }).then((result) => {
+          //   if (result.isConfirmed) {
+          //     location.reload();
+          //   }
+          // });
+          //================//
           Swal.fire({
             title: "Congratulations",
-            text: "Do You Want To Play Again",
+            html: `Your Score Is: <strong class="scor">${yourScore}</strong> <br><p class="pl-ag">Do You Want To Play Again?</p>`,
             icon: "success",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, play again!",
+            cancelButtonText: "No, I'm done",
           }).then((result) => {
             if (result.isConfirmed) {
               location.reload();
+            } else {
+              window.close();
             }
           });
+
           upcomingWords.remove(); // Remove UpcomingWords Box
           clearInterval(timer); // Ensure timer is stopped
           return;
@@ -278,16 +301,34 @@ function startPlay() {
         // ====================================== //
         // OR
 
+        // Swal.fire({
+        //   title: "Game Over",
+        //   text: "Please Try Again",
+        //   icon: "error",
+        // }).then((result) => {
+        //   if (result.isConfirmed) {
+        //     location.reload();
+        //   }
+        // });
+
+        // ============================================ //
+
         Swal.fire({
           title: "Game Over",
-          text: "Please Try Again",
+          html: `Please Try Again Your Score Is: <strong class="scor-r">${yourScore}</strong> <br><p class="pl-ag">Do You Want To Play Again?</p>`,
           icon: "error",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, play again!",
+          cancelButtonText: "No, I'm done",
         }).then((result) => {
           if (result.isConfirmed) {
             location.reload();
+          } else {
+            window.close();
           }
         });
-
         clearInterval(timer); // Ensure timer is stopped
         return;
       }
